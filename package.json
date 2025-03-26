@@ -3,7 +3,7 @@
     "express": "^4.21.2"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest --detectOpenHandles"
   },
   "devDependencies": {
     "jest": "^29.7.0",
