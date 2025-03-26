@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI/CD Pipeline
 
 on:
   push:
@@ -11,18 +11,26 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: 📥 Récupération des sources
+      - name: 👅 Récupération des sources
         uses: actions/checkout@v3
 
-      - name: 🔧 Configuration de Node.js
+      - name: 🛠️ Configuration de Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: 📦 Installation des dépendances
+      - name: 🌟 Installation des dépendances
         run: npm install
 
       - name: ✅ Exécution des tests unitaires
         run: npm test
+
+      - name: 💎 Archivage des artefacts
+        run: tar -czvf release.tar.gz .
+      
+      - name: 🛢️ Upload des artefacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifact
+          path: release.tar.gz
