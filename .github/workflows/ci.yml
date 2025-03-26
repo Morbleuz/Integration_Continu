@@ -30,7 +30,7 @@ jobs:
         run: tar -czvf release.tar.gz .
       
       - name: 🛢️ Upload des artefacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-artifact
           path: release.tar.gz
